@@ -1,5 +1,6 @@
 require '/Users/saritaradia/Desktop/Projects/music-library/lib/database_connection.rb'
 require '/Users/saritaradia/Desktop/Projects/music-library/lib/artist_repository.rb'
+require '/Users/saritaradia/Desktop/Projects/music-library/lib/02_albumsrepo.rb'
 # Make sure this connects to your test database
 
 DatabaseConnection.connect('music_library')  
@@ -16,8 +17,16 @@ DatabaseConnection.connect('music_library')
 #The above is replaced by calling the ArtistRepository Class
 # This connects to the MAIN database, not test
 
-artist_repository = ArtistRepository.new
-artist_repository.all.each do |artist|
-  p artist
-end
+# artist_repository = ArtistRepository.new
+# artist_repository.all.each do |artist|
+#   p artist
+# end
 # This prints out a list of artist objects
+
+#Conntects to AlbumRepository Class
+#Main database, not test 
+
+album_repo = AlbumRepository.new
+album_repo.all.each do |album|
+  p album
+end 
