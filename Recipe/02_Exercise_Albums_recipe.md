@@ -139,6 +139,13 @@ class AlbumRepository
 
     # Returns an array of Album objects.
   end
+
+  def find(id)
+    # Executes the SQL query:
+    # SELECT id, title, release_year, artist_id FROM albums WHERE id = $1;
+
+    # Returns a single Album object.
+  end
   
 end
 ```
@@ -153,7 +160,7 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all albums from the TESTSSSSSSSSSSSSSSSSSSS 
+# Get all albums from the TESTS
 # NOT THE REAL DATA!
 
    repo = AlbumRepository.new
@@ -163,6 +170,21 @@ These examples will later be encoded as RSpec tests.
     expect(album[0].title).to eq('Girl of My Dreams')
     expect(album[0].release_year).to eq '2022'
     expect(album[0].artist_id).to eq('8')
+
+#2 Test real data
+# Get all albums where there are no albums in the database
+    repo = AlbumRepository.new
+    albums = repo.all 
+    expect(albums).to eq []
+
+#3 Get a single album (''Girl of My Dreams'')
+repo = AlbumRepository.new 
+album = repo.find(1)
+expect(album.title).to eq('Girl of My Dreams')
+expect(album.release_year).to eq ('2022')
+expect(album.artist_id).to eq('1')
+
+
 
 
 # Add more examples for each method

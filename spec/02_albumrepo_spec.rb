@@ -21,5 +21,14 @@ RSpec.describe AlbumRepository do
     expect(album[0].release_year).to eq '2022'
     expect(album[0].artist_id).to eq('8')
   end
+
+    it "returns single album" do
+      repo = AlbumRepository.new
+      album = repo.find(1)
+      expect(album.title).to eq('Girl of My Dreams')
+      expect(album.release_year).to eq('2022')
+      expect(album.artist_id).to eq('8')
+    end
+
   end
 end
