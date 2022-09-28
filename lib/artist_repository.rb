@@ -47,7 +47,33 @@ class ArtistRepository
     return artist
 
   end
+  def create(artist)
+    # The $1 and $2 are dynamic placeholders
+    # Doesn't return anything (only creates the record)
+    sql = 'INSERT INTO artists (name, genre) VALUES($1, $2);'
+    sql_params = [artist.name, artist.genre]
+    DatabaseConnection.exec_params(sql, sql_params)
+  end
 
+  #Deletes an artist record given its id
+  def delete(id)
+    #Executes the SQL:
+    # Returns nothing (only deletes the record)
+    sql = 'DELETE FROM artists WHERE id = $1;'
+    sql_params = [id]
+    DatabaseConnection.exec_params(sql, sql_params)
+  end
 
+  # Updates an artist record
+  # Takes an Artist object with the updated fields
+  def update(artist)
+    #Executes the SQL:
+    # UPDATE artists SET name = $1, genre = $2 WHERE id = $3
+    # Returns nothing, only updates the record
+    sql = 'UPDATE artists SET name = $1, genre = $2 WHERE id = $3;'
+    sql_params = [artist.name, artist.genre, artist.id]
+
+    DatabaseConnection.exec_params(sql, sql_params)
+  end
 
 end

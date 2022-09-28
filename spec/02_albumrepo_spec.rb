@@ -31,4 +31,30 @@ RSpec.describe AlbumRepository do
     end
 
   end
+
+  context "it creates a new album" do
+    it "creates a new album" do
+    repository = AlbumRepository.new
+
+    new_album = Album.new
+    new_album.title = 'Expectations'
+    new_album.release_year = 2018
+    new_album.artist_id = 1
+
+    repository.create(new_album)
+
+    albums = repository.all
+    last_album = albums.last
+    expect(last_album.title).to eq('Expectations')
+    expect(last_album.release_year).to eq('2018')
+    expect(last_album.artist_id).to eq('1')
+
+    #ANOTHER WAY TO RUN THE ABOVE TEST
+    expect(albums).to include(have_attributes(title: new_album.title, release_year: '2018'))
+
+
+    # The all_albums array should contain the new Album object
+    end
+    end
+
 end
