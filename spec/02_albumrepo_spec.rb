@@ -50,7 +50,7 @@ RSpec.describe AlbumRepository do
     expect(last_album.artist_id).to eq('1')
 
     #ANOTHER WAY TO RUN THE ABOVE TEST
-    expect(albums).to include(have_attributes(title: new_album.title, release_year: '2018'))
+    expect(albums).to include(have_attributes(title: new_album.title, release_year: '2018', artist_id: '1'))
 
 
     # The all_albums array should contain the new Album object

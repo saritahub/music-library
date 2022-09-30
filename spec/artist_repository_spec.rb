@@ -6,7 +6,8 @@ RSpec.describe ArtistRepository do
     connection = PG.connect({ host: '127.0.0.1', dbname: 'music_library_test' })
     connection.exec(seed_sql)
   end
-
+    
+  describe ArtistRepository do 
     before(:each) do
       reset_artists_table
     end
@@ -103,5 +104,5 @@ RSpec.describe ArtistRepository do
       expect(updated_artist.genre).to eq('Rock')
     end
   end
-
+end 
 end

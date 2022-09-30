@@ -241,7 +241,7 @@ all_artists = repo.all
 all_artists.length # => 1
 all_artists.first.id # => '2'
 
-#5 Update an artist
+#6 Update an artist
 repo = ArtistRepository.new
 
 artist = repo.find(1)
