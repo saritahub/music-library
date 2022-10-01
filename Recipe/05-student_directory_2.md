@@ -133,5 +133,7 @@ CREATE TABLE students (
 ## 5. Create the tables.
 
 ```bash
-psql -h 127.0.0.1 student_directory_2_test < seeds_cohorts.sql
+psql -h 127.0.0.1 student_directory_2_test < seeds_cohorts_students.sql
+
+psql -h 127.0.0.1 student_directory_2 < seeds_cohorts_students.sql
 ```

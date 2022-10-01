@@ -1,15 +1,16 @@
 require '/Users/saritaradia/Desktop/Projects/music-library/lib/CohortRepository.rb'
 require '/Users/saritaradia/Desktop/Projects/music-library/lib/cohort.rb'
+require '/Users/saritaradia/Desktop/Projects/music-library/lib/students.rb'
 
 RSpec.describe CohortRepository  do
-  def reset_cohorts_table
-    seed_sql = File.read('spec/seeds_cohorts.sql')
+  def reset_cohorts_students_table
+    seed_sql = File.read('spec/seeds_cohorts_students.sql')
     connection = PG.connect({ host: '127.0.0.1', dbname: 'student_directory_2_test' })
     connection.exec(seed_sql)
   end
 
     before(:each) do
-      reset_cohorts_table
+      reset_cohorts_students_table
     end
 
   it "returns all cohorts" do

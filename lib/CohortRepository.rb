@@ -3,11 +3,13 @@ class CohortRepository
 
   def all
     sql = 'SELECT id, name, start_date FROM cohorts;'
-    result_set = DatabaseConnection.exec_params(sql, [])
+    params = []
+    result = DatabaseConnection.exec_params(sql, params)
+
 
     cohorts = []
 
-    result_set.each do |record|
+    result.each do |record|
       cohort = Cohort.new
       cohort.id = record['id']
       cohort.name = record['name']

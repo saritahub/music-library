@@ -27,7 +27,7 @@ If seed data is provided (or you already created it), you can skip this step.
 
 ```sql
 -- EXAMPLE
--- (file: spec/seeds_cohorts.sql)
+-- (file: spec/seeds_cohorts_students.sql)
 
 -- Write your SQL seed here. 
 
@@ -47,7 +47,7 @@ INSERT INTO cohorts (name, start_date) VALUES ('David', '2022-09-01');
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
 
 ```bash
-psql -h 127.0.0.1 student_directory_2 < seeds_cohorts.sql
+psql -h 127.0.0.1 student_directory_2 < seeds_cohorts_students.sql
 ```
 
 ## 3. Define the class names
