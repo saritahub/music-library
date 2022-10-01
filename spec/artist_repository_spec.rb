@@ -1,4 +1,7 @@
 require '/Users/saritaradia/Desktop/Projects/music-library/lib/artist_repository.rb'
+require '/Users/saritaradia/Desktop/Projects/music-library/lib/02_albums.rb'
+require '/Users/saritaradia/Desktop/Projects/music-library/lib/02_albumsrepo.rb'
+require '/Users/saritaradia/Desktop/Projects/music-library/lib/artist.rb'
 
 RSpec.describe ArtistRepository do
   def reset_artists_table
@@ -7,14 +10,20 @@ RSpec.describe ArtistRepository do
     connection.exec(seed_sql)
   end
     
-  describe ArtistRepository do 
+
     before(:each) do
       reset_artists_table
     end
 
     # (your tests will go here).
 
-
+    # it 'finds artist 1 with related albums' do
+    #   repository = ArtistRepository.new
+    #   artist = repository.find_with_albums(3)
+    #
+    #   expect(artist.name).to eq('Taylor Swift')
+    #   expect(artist.albums.length).to eq(2)
+    # end
   it "Gets all artist records " do
     repo = ArtistRepository.new
     artists = repo.all
@@ -104,5 +113,6 @@ RSpec.describe ArtistRepository do
       expect(updated_artist.genre).to eq('Rock')
     end
   end
-end 
+
+
 end

@@ -107,7 +107,7 @@ Replace the relevant bits in this example with your own:
 -- EXAMPLE
 -- file: students_table.sql
 
--- Replace the table name, columm names and types.
+-- Replace the table name, column names and types.
 
 -- Create the table without the foreign key first.
 CREATE TABLE cohorts (
@@ -133,5 +133,5 @@ CREATE TABLE students (
 ## 5. Create the tables.
 
 ```bash
-psql -h 127.0.0.1 database_name < albums_table.sql
+psql -h 127.0.0.1 student_directory_2_test < seeds_cohorts.sql
 ```

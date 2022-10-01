@@ -1,14 +1,7 @@
 require '/Users/saritaradia/Desktop/Projects/music-library/lib/artist.rb'
 
 class ArtistRepository
-
-  # Selecting all records
-  # No arguments
   def all
-    # Executes the SQL query:
-    # SELECT id, name, genre FROM artists;
-
-    # Returns an array of Artist objects.
     sql = 'SELECT id, name, genre FROM artists;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
@@ -76,4 +69,39 @@ class ArtistRepository
     DatabaseConnection.exec_params(sql, sql_params)
   end
 
+  # def find_with_albums(id)
+  #   sql = 'SELECT artists.id,
+  #                 artists.name,
+  #                 artists.genre,
+  #                 albums.id AS album_id,
+  #                 albums.title,
+  #                 albums.release_year
+  #         FROM artists
+  #         JOIN albums ON albums.artist_id = artists.id
+  #         WHERE artists.id = $1;'
+  #
+  #   params = [id]
+  #
+  #   result = DatabaseConnection.exec_params(sql, params)
+  #   record =  result[id]
+  #
+  #   artist = Artist.new
+  #
+  #   artist.id = record['id']
+  #   artist.name = record['name']
+  #   artist.genre = record['genre']
+  #   # artist.albums = []
+  #
+  #
+  #   result.each do |record|
+  #     album = Album.new
+  #     album.id = record['album_id']
+  #     album.title = record['title']
+  #     album.release_year = record['release_year']
+  #
+  #     artist.albums << album
+  #   end
+  #
+  #   return artist
+  # end
 end

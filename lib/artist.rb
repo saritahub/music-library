@@ -1,5 +1,8 @@
 class Artist
+  attr_accessor :id, :name, :genre, :albums
 
-  # Replace the attributes by your own columns.
-  attr_accessor :id, :name, :genre
+  def initialize
+    @albums = []
+  end
 end
+
